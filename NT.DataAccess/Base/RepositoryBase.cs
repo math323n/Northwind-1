@@ -1,49 +1,58 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using NT.Entities.Models;
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace NT.DataAccess.RepositoryBase
 {
-    public class RepositoryBase<T>: IRepositoryBase<T> where T : class
+    public class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
-        #region Fields
-        // Static Northwind context
-       // protected static NorthwindContext context;
-        #endregion
+        protected NorthwindContext context;
 
-        #region Constructor
-        static RepositoryBase()
+        public RepositoryBase(NorthwindContext context)
         {
-           // context = new NorthwindContext();
+            Context = context;
         }
 
-        protected RepositoryBase() { }
-        #endregion
+        public RepositoryBase() { }
 
-        #region Methods
-        public virtual void Add(T t)
+        public virtual NorthwindContext Context
         {
-            throw new NotImplementedException();
+            get { return context; }
+            set { context = value; }
         }
 
-        public virtual void Delete(T t)
+        public void Add(T t)
         {
-            throw new NotImplementedException();
+            context.Set<T>().Add(t);
+            context.SaveChanges();
         }
 
-        public virtual IEnumerable<T> GetAll()
+        public void Delete(T t)
         {
-            throw new NotImplementedException();
+            context.Set<T>().Remove(t);
+            context.SaveChanges();
+        }
+
+        public IEnumerable<T> GetAll()
+        {
+            return context.Set<T>();
+        }
+
+        public async Task<IEnumerable<T>> GetAllAsync()
+        {
+            return await context.Set<T>().ToListAsync();
         }
 
         public virtual T GetBy(int id)
         {
-            throw new NotImplementedException();
+            return context.Set<T>().Find(id);
         }
 
-        public virtual void Update(T t)
+        public void Update()
         {
-            throw new NotImplementedException();
+            context.SaveChanges();
         }
-        #endregion
     }
 }
