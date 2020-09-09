@@ -5,10 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NT.Gui"
         mc:Ignorable="d"
-        Title="MainWindow"
-        Height="450"
-        Width="800">
+        Height="646"
+        Width="680">
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="64"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0"
+              Background="LightBlue">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="8"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <Label Grid.Row="1"
+                   Content="NORTHWIND TRADERS LOGISTICS MANAGEMENT SYSTEM"
+                   FontSize="24"
+                   FontWeight="Bold" />
+        </Grid>
     </Grid>
 </Window>
