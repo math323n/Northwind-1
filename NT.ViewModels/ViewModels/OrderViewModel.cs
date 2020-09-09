@@ -7,6 +7,7 @@ namespace NT.ViewModels.ViewModels
     public class OrderViewModel
     {
         #region Fields
+        
         #endregion
 
 
@@ -32,16 +33,25 @@ namespace NT.ViewModels.ViewModels
         /// </summary>
         private void LoadAllOrders()
         {
+            // Needs implementing
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Deletes an order
+        /// </summary>
         private void DeleteOrder()
         {
+            // Needs implementing
             throw new NotImplementedException();
 
         }
+        /// <summary>
+        ///  Adds an order
+        /// </summary>
         private void AddOrder()
         {
+            // Needs implementing
             throw new NotImplementedException();
 
         }
