@@ -2,29 +2,39 @@
 
 namespace NT.DataAccess.Factory
 {
+    /// <summary>
+    ///  A Repository factory class
+    /// </summary>
+    /// <typeparam name="TRepository"></typeparam>
+    /// <typeparam name="TEntity"></typeparam>
     public class RepositoryFactory<TRepository, TEntity>
          where TRepository : IRepositoryBase<TEntity>, new()
          where TEntity : class
     {
+        #region Fields
         protected static RepositoryFactory<TRepository, TEntity> instance;
+        #endregion
+
         //protected NorthwindContext context;
-
+        #region Constructor
         public RepositoryFactory() { }
+        #endregion
 
+        #region Methods
         /// <summary>
-        /// 
+        ///  Constructor for repository factory, needs context
         /// </summary>
         /// <returns></returns>
-       /* public virtual TRepository Create()
-        {
-           if(context is null)
-            {
-                context = new NorthwindContext();
-            }
-            TRepository repo = new TRepository();
-            repo.Context = context;
-            return repo;
-        }*/
+        /* public virtual TRepository Create()
+         {
+            if(context is null)
+             {
+                 context = new NorthwindContext();
+             }
+             TRepository repo = new TRepository();
+             repo.Context = context;
+             return repo;
+         }*/
 
         /// <summary>
         /// Gets the instance of the <see cref="RepositoryFactory{T}"/> if it exitsts, else it creates it.
@@ -44,7 +54,9 @@ namespace NT.DataAccess.Factory
         /// </summary>
         public virtual void KillContext()
         {
+            // Needs context
             //context.Dispose();
         }
+        #endregion
     }
 }
