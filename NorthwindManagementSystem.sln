@@ -3,17 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NT.Gui", "NT.Gui\NT.Gui.csproj", "{08184B69-0571-453F-B69A-E4AB01A94FA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NT.Gui", "NT.Gui\NT.Gui.csproj", "{08184B69-0571-453F-B69A-E4AB01A94FA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NT.ViewModels", "NT.ViewModels\NT.ViewModels.csproj", "{E12223EE-6E2D-4A8E-AF47-58CCCD7BF85C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NT.ViewModels", "NT.ViewModels\NT.ViewModels.csproj", "{E12223EE-6E2D-4A8E-AF47-58CCCD7BF85C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NT.Services", "NT.Services\NT.Services.csproj", "{E441624A-9807-48C5-9CC6-33350E258445}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NT.Services", "NT.Services\NT.Services.csproj", "{E441624A-9807-48C5-9CC6-33350E258445}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NT.Entities", "NT.Entities\NT.Entities.csproj", "{41991F12-273F-4B90-8A73-E5CA7444EE80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NT.Entities", "NT.Entities\NT.Entities.csproj", "{41991F12-273F-4B90-8A73-E5CA7444EE80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NT.WebServer", "NT.WebServer\NT.WebServer.csproj", "{92554E26-DE81-4EB6-B21F-C733717BA7FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NT.WebServer", "NT.WebServer\NT.WebServer.csproj", "{92554E26-DE81-4EB6-B21F-C733717BA7FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NT.DataAccess", "NT.DataAccess\NT.DataAccess.csproj", "{912C8119-F6AC-46E6-A43A-9F3CA6751C95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NT.DataAccess", "NT.DataAccess\NT.DataAccess.csproj", "{912C8119-F6AC-46E6-A43A-9F3CA6751C95}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7F55BFEE-AEDA-4743-965D-D8F1DD0E1D52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NT.Tests.Services", "NT.Tests.Services\NT.Tests.Services.csproj", "{6C23824B-E3BC-49F4-9418-EF50828F50D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,9 +49,16 @@ Global
 		{912C8119-F6AC-46E6-A43A-9F3CA6751C95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{912C8119-F6AC-46E6-A43A-9F3CA6751C95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{912C8119-F6AC-46E6-A43A-9F3CA6751C95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C23824B-E3BC-49F4-9418-EF50828F50D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C23824B-E3BC-49F4-9418-EF50828F50D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C23824B-E3BC-49F4-9418-EF50828F50D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C23824B-E3BC-49F4-9418-EF50828F50D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6C23824B-E3BC-49F4-9418-EF50828F50D0} = {7F55BFEE-AEDA-4743-965D-D8F1DD0E1D52}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EFF9B19F-5C5F-4AF3-9B10-366B14388C2F}
