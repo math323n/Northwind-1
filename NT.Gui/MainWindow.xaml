@@ -24,6 +24,7 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
+            <!--#region Banner -->
             <Label Grid.Row="1"
                    Content="NORTHWIND TRADERS LOGISTICS MANAGEMENT SYSTEM"
                    HorizontalContentAlignment="Center"
@@ -31,9 +32,9 @@
                    FontSize="23.5"
                    FontWeight="Bold"
                    FontFamily="Bahnschrift SemiBold" />
-
+            <!--#endregion-->
         </Grid>
-
+        <!--#region Orders-->
         <TabControl Grid.Row="1">
             <TabItem Header="Orders">
                 <UserControl>
@@ -43,7 +44,7 @@
                             <ColumnDefinition Width="400" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <!-- #Region Order ListView -->
@@ -61,22 +62,22 @@
                             </ListView.View>
                         </ListView>
                         <!--#endregion-->
-                        <StackPanel Grid.Column="1" Margin="20"
-                                   VerticalAlignment="Center"
+                        <StackPanel Grid.Column="1"
+                                    Margin="20"
+                                    VerticalAlignment="Center"
                                     Orientation="Horizontal">
                             <TextBlock Text="Shipped: "
                                        FontSize="20" />
-                            <Viewbox Height="20" >
+                            <Viewbox Height="20">
                                 <CheckBox x:Name="isShippedCheckbox" />
                             </Viewbox>
-                        </StackPanel>
-                        <StackPanel>
-                            
                         </StackPanel>
                     </Grid>
 
                 </UserControl>
             </TabItem>
+            <!--#endregion-->
+            <!--#region Products -->
             <TabItem Header="Products">
                 <UserControl>
                     <Grid>
@@ -97,12 +98,12 @@
                                 </GridView>
                             </ListView.View>
                         </ListView>
-                        
+
                         <!--#endregion-->
                     </Grid>
-
                 </UserControl>
             </TabItem>
+            <!--#endregion-->
         </TabControl>
     </Grid>
 </Window>
