@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace NT.ViewModels.ViewModels
 {
@@ -9,7 +7,6 @@ namespace NT.ViewModels.ViewModels
         #region Fields
         
         #endregion
-
 
         #region Constructor
 

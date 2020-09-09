@@ -4,13 +4,16 @@ using System.Text;
 
 namespace NT.DataAccess.RepositoryBase
 {
-    public interface IRepositoryBase<TEntity>
+    public interface IRepositoryBase<T>
     {
-        IEnumerable<TEntity> GetAll();
-        TEntity GetBy(int id);
-        void Update(TEntity t);
-        void Add(TEntity t);
-        void Delete(TEntity t);
+        //NorthwindContext Context { get; set; }
 
+        IEnumerable<T> GetAll();
+
+        T GetBy(int id);
+
+        void Update();
+        void Add(T t);
+        void Delete(T t);
     }
 }

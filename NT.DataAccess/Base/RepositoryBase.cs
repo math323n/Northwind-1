@@ -1,49 +1,81 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace NT.DataAccess.RepositoryBase
 {
-    public class RepositoryBase<T>: IRepositoryBase<T> where T : class
+    public class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
-        #region Fields
-        // Static Northwind context
-       // protected static NorthwindContext context;
-        #endregion
+        //protected NorthwindContext context;
 
-        #region Constructor
-        static RepositoryBase()
-        {
-           // context = new NorthwindContext();
-        }
+        //public RepositoryBase(NorthwindContext context)
+        //{
+        //    Context = context;
+        //}
 
-        protected RepositoryBase() { }
-        #endregion
+        //public RepositoryBase() { }
 
-        #region Methods
-        public virtual void Add(T t)
+        //public virtual NorthwindContext Context
+        //{
+        //    get { return context; }
+        //    set { context = value; }
+        //}
+
+        //public void Add(T t)
+        //{
+        //    context.Set<T>().Add(t);
+        //    context.SaveChanges();
+        //}
+
+        //public void Delete(T t)
+        //{
+        //    context.Set<T>().Remove(t);
+        //    context.SaveChanges();
+        //}
+
+        //public IEnumerable<T> GetAll()
+        //{
+        //    return context.Set<T>();
+        //}
+
+        //public async Task<IEnumerable<T>> GetAllAsync()
+        //{
+        //    return await context.Set<T>().ToListAsync();
+        //}
+
+        //public virtual T GetBy(int id)
+        //{
+        //    return context.Set<T>().Find(id);
+        //}
+
+        //public void Update()
+        //{
+        //    context.SaveChanges();
+        //}
+
+        public void Add(T t)
         {
             throw new NotImplementedException();
         }
 
-        public virtual void Delete(T t)
+        public void Delete(T t)
         {
             throw new NotImplementedException();
         }
 
-        public virtual IEnumerable<T> GetAll()
+        public IEnumerable<T> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public virtual T GetBy(int id)
+        public T GetBy(int id)
         {
             throw new NotImplementedException();
         }
 
-        public virtual void Update(T t)
+        public void Update()
         {
             throw new NotImplementedException();
         }
-        #endregion
     }
 }
