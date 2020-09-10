@@ -21,39 +21,11 @@ namespace NT.Gui.UserControls
     /// </summary>
     public partial class OrdersControl: UserControl
     {
-        #region Fields
-        readonly OrderViewModel orderViewModel;
-        OrderRepository repo;
-        private bool isLoaded;
-
-
-        #endregion
-
 
         public OrdersControl()
         {
             InitializeComponent();
-            repo = new OrderRepository();
-            orderViewModel = DataContext as OrderViewModel;
         }
 
-
-
-        #region Methods
-        /// <summary>
-        /// Is run when UserControl is loaded once
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void OnLoaded(object sender, RoutedEventArgs e)
-        {
-            if(!isLoaded)
-            {
-                isLoaded = true;
-                orderViewModel.Initialize();
-            }
-        }
-
-        #endregion
     }
 }
