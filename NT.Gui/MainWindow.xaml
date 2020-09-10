@@ -87,7 +87,7 @@
                             <TextBlock Text="Shipped: "
                                        FontSize="20" />
                             <Viewbox Height="20">
-                                <CheckBox x:Name="isShippedCheckbox" />
+                                <CheckBox IsChecked="{Binding IsShippedCheckbox}"/>
                             </Viewbox>
                         </StackPanel>
                         <!--#endregion-->
