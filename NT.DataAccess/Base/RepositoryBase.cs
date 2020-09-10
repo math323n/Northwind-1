@@ -15,8 +15,10 @@ namespace NT.DataAccess.RepositoryBase
             Context = context;
         }
 
-        public RepositoryBase() { }
-
+        public RepositoryBase()
+        {
+            context = new NorthwindContext();
+        }
         public virtual NorthwindContext Context
         {
             get { return context; }

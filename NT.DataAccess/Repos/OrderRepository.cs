@@ -3,6 +3,7 @@ using NT.DataAccess.RepositoryBase;
 using NT.Entities.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,9 +20,13 @@ namespace NT.DataAccess.Repos
                 .SingleOrDefaultAsync(p => p.OrderId == id);
         }
 
-        public override async Task<IEnumerable<Orders>> GetAllAsync()
+        public async Task<IEnumerable<Orders>> GetAllOrdersAsync(string customerId)
         {
-            return await context.Set<Orders>().Include(orderDetails).ToListAsync();
+            return await context.Set<Orders>()
+                .Include("Customer")
+                .Include("OrderDetails")
+                .Where(o => o.CustomerId == customerId)
+                .ToListAsync();
         }
     }
 }
