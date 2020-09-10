@@ -20,7 +20,7 @@ namespace NT.Services
         /// </summary>
         /// <param name="url"></param>
         /// <returns></returns>
-        protected virtual async Task<string> CallWebApi(string url)
+        protected virtual async Task<string> CallWebApiAsync(string url)
         {
             try
             {
@@ -55,12 +55,12 @@ namespace NT.Services
         /// Returns a list of all order objects.
         /// </summary>
         /// <returns></returns>
-        public virtual async Task<List<Orders>> GetAllOrders()
+        public virtual async Task<List<Orders>> GetAllOrdersAsync()
         {
             try
             {
                 // Call the web API
-                string json = await CallWebApi("http://10.143.74.234:49801/order/all");
+                string json = await CallWebApiAsync("http://10.143.74.234:49801/order/all");
 
                 // Deserialize the JSON data into an object list
                 List<Orders> orderData = JsonConvert.DeserializeObject<List<Orders>>(json);
@@ -78,12 +78,12 @@ namespace NT.Services
         /// Returns a list of all order objects by ID.
         /// </summary>
         /// <returns></returns>
-        public virtual async Task<List<Orders>> GetAllOrdersByID()
+        public virtual async Task<List<Orders>> GetAllOrdersByIdAsync()
         {
             try
             {
                 // Call the web API
-                string json = await CallWebApi("http://10.143.74.234:49801/order/all/");
+                string json = await CallWebApiAsync("http://10.143.74.234:49801/order/all/");
 
                 // Deserialize the JSON data into an object list
                 List<Orders> orderData = JsonConvert.DeserializeObject<List<Orders>>(json);
@@ -101,12 +101,12 @@ namespace NT.Services
         /// Returns a list of all product objects.
         /// </summary>
         /// <returns></returns>
-        public virtual async Task<List<Products>> GetAllProducts()
+        public virtual async Task<List<Products>> GetAllProductsAsync()
         {
             try
             {
                 // Call the web API
-                string json = await CallWebApi("http://10.143.74.234:49801/product/all");
+                string json = await CallWebApiAsync("http://10.143.74.234:49801/product/all");
 
                 // Deserialize the JSON data into an object list
                 List<Products> productData = JsonConvert.DeserializeObject<List<Products>>(json);
