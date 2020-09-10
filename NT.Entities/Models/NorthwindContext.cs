@@ -49,8 +49,10 @@ namespace NT.Entities.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
+                // Use VM Database Server
+                optionsBuilder.UseSqlServer("Server=10.143.75.66;Database=Northwind;User Id=webapi;Password=P4ssw0rd;");
 
-                optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Northwind;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                //optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Northwind;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             }
         }
 
