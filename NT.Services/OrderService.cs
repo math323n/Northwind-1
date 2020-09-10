@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
+using NT.Entities.Models;
+
 namespace NT.Services
 {
     public class OrderService
@@ -49,6 +51,77 @@ namespace NT.Services
                 throw;
             }
         }
+        /// <summary>
+        /// Returns a list of all order objects.
+        /// </summary>
+        /// <returns></returns>
+        public virtual async Task<List<Orders>> GetAllOrders()
+        {
+            try
+            {
+                // Call the web API
+                string json = await CallWebApi("http://10.143.74.234:49801/order/all");
+
+                // Deserialize the JSON data into an object list
+                List<Orders> orderData = JsonConvert.DeserializeObject<List<Orders>>(json);
+
+                // Return the object list
+                return orderData;
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Returns a list of all order objects by ID.
+        /// </summary>
+        /// <returns></returns>
+        public virtual async Task<List<Orders>> GetAllOrdersByID()
+        {
+            try
+            {
+                // Call the web API
+                string json = await CallWebApi("http://10.143.74.234:49801/order/all/");
+
+                // Deserialize the JSON data into an object list
+                List<Orders> orderData = JsonConvert.DeserializeObject<List<Orders>>(json);
+
+                // Return the object list
+                return orderData;
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Returns a list of all product objects.
+        /// </summary>
+        /// <returns></returns>
+        public virtual async Task<List<Products>> GetAllProducts()
+        {
+            try
+            {
+                // Call the web API
+                string json = await CallWebApi("http://10.143.74.234:49801/product/all");
+
+                // Deserialize the JSON data into an object list
+                List<Products> productData = JsonConvert.DeserializeObject<List<Products>>(json);
+
+                // Return the object list
+                return productData;
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+        }
+
+
+
         #endregion
     }
 }
