@@ -25,7 +25,7 @@ namespace NT.ViewModels.ViewModels
 
         #region Collections
         public ObservableCollection<Orders> Orders { get; set; }
-
+        
         public Orders SelectedOrder
         {
             get
@@ -43,8 +43,6 @@ namespace NT.ViewModels.ViewModels
 
 
         #region Methods
-
-
         /// <summary>
         /// Initializes all orders
         /// </summary>
