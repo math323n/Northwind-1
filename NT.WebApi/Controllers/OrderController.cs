@@ -12,10 +12,16 @@ namespace NT.WebApi.Controllers
     [ApiController]
     public class OrderController
     {
-        [HttpGet("all/{customerID}")]
-        public async Task<IEnumerable<Orders>> GetAll(string customerId)
+        [HttpGet("all")]
+        public async Task<IEnumerable<Orders>> GetAll()
         {
-            return await new OrderRepository().GetAllOrdersAsync(customerId);
+            return await new OrderRepository().GetAllOrdersAsync();
+        }
+
+        [HttpGet("all/{customerID}")]
+        public async Task<IEnumerable<Orders>> GetAllById(string customerId)
+        {
+            return await new OrderRepository().GetAllOrdersByIdAsync(customerId);
         }
 
         //[HttpGet("pending/{customerID}")]

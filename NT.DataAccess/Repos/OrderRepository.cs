@@ -20,7 +20,15 @@ namespace NT.DataAccess.Repos
                 .SingleOrDefaultAsync(p => p.OrderId == id);
         }
 
-        public async Task<IEnumerable<Orders>> GetAllOrdersAsync(string customerId)
+        public async Task<IEnumerable<Orders>> GetAllOrdersAsync()
+        {
+            return await context.Set<Orders>()
+                .Include("Customer")
+                .Include("OrderDetails")
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Orders>> GetAllOrdersByIdAsync(string customerId)
         {
             return await context.Set<Orders>()
                 .Include("Customer")
