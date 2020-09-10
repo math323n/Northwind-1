@@ -8,22 +8,102 @@
         Height="646"
         Width="680">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="64"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        
-        <Grid Grid.Row="0"
-              Background="LightBlue">
+            <!-- #region Grid definitions -->
             <Grid.RowDefinitions>
-                <RowDefinition Height="8"></RowDefinition>
-                <RowDefinition></RowDefinition>
+                <RowDefinition Height="64" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            
-            <Label Grid.Row="1"
-                   Content="NORTHWIND TRADERS LOGISTICS MANAGEMENT SYSTEM"
-                   FontSize="24"
-                   FontWeight="Bold" />
+            <!-- #endregion -->
+
+
+            <!-- Grid -->
+            <Grid Grid.Row="0"
+                  Background="LightBlue">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="8" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <!--#region Banner -->
+                <Label Grid.Row="1"
+                       Content="NORTHWIND TRADERS LOGISTICS MANAGEMENT SYSTEM"
+                       HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center"
+                       FontSize="23.5"
+                       FontWeight="Bold"
+                       FontFamily="Bahnschrift SemiBold" />
+                <!--#endregion-->
+            </Grid>
+            <!--#region Orders-->
+            <TabControl Grid.Row="1">
+                <TabItem Header="Orders">
+                    <UserControl>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200" />
+                                <ColumnDefinition Width="400" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <!-- #Region Order ListView -->
+                            <ListView x:Name="listView_Orders"
+                                      Grid.RowSpan="2"
+                                      Background="LightSlateGray"
+                                      ItemsSource="{Binding Orders}"
+                                      SelectedItem="{Binding SelectedOrder}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="ID"
+                                                        DisplayMemberBinding="{Binding OrderId}"
+                                                        Width="60" />
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                            <!--#endregion-->
+                            <StackPanel Grid.Column="1"
+                                        Margin="20"
+                                        VerticalAlignment="Center"
+                                        Orientation="Horizontal">
+                                <TextBlock Text="Shipped: "
+                                           FontSize="20" />
+                                <Viewbox Height="20">
+                                    <CheckBox x:Name="isShippedCheckbox" />
+                                </Viewbox>
+                            </StackPanel>
+                        </Grid>
+
+                    </UserControl>
+                </TabItem>
+                <!--#endregion-->
+                <!--#region Products -->
+                <TabItem Header="Products">
+                    <UserControl>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200" />
+                                <ColumnDefinition Width="400" />
+                            </Grid.ColumnDefinitions>
+                            <!-- #Region Order ListView -->
+                            <ListView x:Name="listView_Products"
+                                      Background="LightSlateGray"
+                                      ItemsSource="{Binding Products}"
+                                      SelectedItem="{Binding SelectedProduct}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="ID"
+                                                        DisplayMemberBinding="{Binding ProductId}"
+                                                        Width="60" />
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+
+                            <!--#endregion-->
+                        </Grid>
+                    </UserControl>
+                </TabItem>
+                <!--#endregion-->
+            </TabControl>
         </Grid>
-    </Grid>
 </Window>
