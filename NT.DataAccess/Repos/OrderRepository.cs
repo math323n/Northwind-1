@@ -11,16 +11,7 @@ namespace NT.DataAccess.Repos
 {
     public class OrderRepository : RepositoryBase<Orders>
     {
-        protected const string orderDetails = "OrderDetails";
-
-        public override async Task<Orders> GetByAsync(int id)
-        {
-            return await context.Orders
-                .Include(orderDetails)
-                .SingleOrDefaultAsync(p => p.OrderId == id);
-        }
-
-        public async Task<IEnumerable<Orders>> GetAllOrdersAsync()
+        public override async Task<IEnumerable<Orders>> GetAllAsync()
         {
             return await context.Set<Orders>()
                 .Include("Customer")
@@ -28,7 +19,7 @@ namespace NT.DataAccess.Repos
                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<Orders>> GetAllOrdersByIdAsync(string customerId)
+        public async Task<IEnumerable<Orders>> GetByIdAsync(string customerId)
         {
             return await context.Set<Orders>()
                 .Include("Customer")

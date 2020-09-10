@@ -11,18 +11,18 @@ namespace NT.DataAccess.Repos
 {
     public class ProductRepository : RepositoryBase<Products>
     {
-        protected const string category = "Category";
-
         public override async Task<Products> GetByAsync(int id)
         {
             return await context.Products
-                .Include(category)
+                .Include("Category")
                 .SingleOrDefaultAsync(p => p.ProductId == id);
         }
 
         public override async Task<IEnumerable<Products>> GetAllAsync()
         {
-            return await context.Set<Products>().Include(category).ToListAsync();
+            return await context.Set<Products>()
+                .Include("Category")
+                .ToListAsync();
         }
     }
 }
