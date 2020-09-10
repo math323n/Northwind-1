@@ -7,23 +7,26 @@
         mc:Ignorable="d"
         Height="646"
         Width="680">
-    
+
     <Grid>
-        <!-- #region Grid definitions -->
+        
+        <!-- #region Grid Definitions -->
         <Grid.RowDefinitions>
             <RowDefinition Height="64" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <!-- #endregion -->
 
-
-        <!-- Grid -->
+        <!--#region Header -->
         <Grid Grid.Row="0"
               Background="LightBlue">
+
+            <!--#region Grid Row Definition -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="8" />
                 <RowDefinition />
             </Grid.RowDefinitions>
+            <!--#endregion-->
 
             <!--#region Banner -->
             <Label Grid.Row="1"
@@ -34,20 +37,32 @@
                    FontWeight="Bold"
                    FontFamily="Bahnschrift SemiBold" />
             <!--#endregion-->
+
         </Grid>
-        <!--#region Orders-->
+        <!--#endregion-->
+
+        <!--#region Content -->
         <TabControl Grid.Row="1">
+
+            <!--#region Orders-->
             <TabItem Header="Orders">
                 <UserControl>
                     <Grid>
+
+                        <!--#region Grid Column Definitions -->
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="200" />
                             <ColumnDefinition Width="400" />
                         </Grid.ColumnDefinitions>
+                        <!--#endregion-->
+
+                        <!--#region Grid Row Difinitions -->
                         <Grid.RowDefinitions>
                             <RowDefinition Height="100" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
+                        <!--#endregion-->
+
                         <!-- #Region Order ListView -->
                         <ListView x:Name="listView_Orders"
                                   Grid.RowSpan="2"
@@ -63,6 +78,8 @@
                             </ListView.View>
                         </ListView>
                         <!--#endregion-->
+
+                        <!--#region Order Details -->
                         <StackPanel Grid.Column="1"
                                     Margin="20"
                                     VerticalAlignment="Center"
@@ -73,24 +90,32 @@
                                 <CheckBox x:Name="isShippedCheckbox" />
                             </Viewbox>
                         </StackPanel>
-                    </Grid>
+                        <!--#endregion-->
 
+                    </Grid>
                 </UserControl>
             </TabItem>
             <!--#endregion-->
+
             <!--#region Products -->
             <TabItem Header="Products">
                 <UserControl>
                     <Grid>
+
+                        <!--#region Grid Column Difinitions -->
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="32.301" />
+                            <ColumnDefinition Width="167.699" />
                             <ColumnDefinition Width="400" />
                         </Grid.ColumnDefinitions>
+                        <!--#endregion-->
+
                         <!-- #Region Order ListView -->
                         <ListView x:Name="listView_Products"
                                   Background="LightSlateGray"
                                   ItemsSource="{Binding Products}"
-                                  SelectedItem="{Binding SelectedProduct}">
+                                  SelectedItem="{Binding SelectedProduct}"
+                                  Grid.ColumnSpan="2">
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="ID"
@@ -101,10 +126,14 @@
                         </ListView>
 
                         <!--#endregion-->
+
                     </Grid>
                 </UserControl>
             </TabItem>
             <!--#endregion-->
+
         </TabControl>
+        <!--#endregion-->
+
     </Grid>
 </Window>
