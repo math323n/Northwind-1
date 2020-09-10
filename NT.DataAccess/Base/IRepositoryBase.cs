@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace NT.DataAccess.RepositoryBase
 {
@@ -9,12 +10,12 @@ namespace NT.DataAccess.RepositoryBase
     {
         NorthwindContext Context { get; set; }
 
-        IEnumerable<T> GetAll();
+        Task<IEnumerable<T>> GetAllAsync();
 
-        T GetBy(int id);
+        Task<T> GetByAsync(int id);
 
-        void Update();
-        void Add(T t);
-        void Delete(T t);
+        Task UpdateAsync();
+        Task AddAsync(T t);
+        Task DeleteAsync(T t);
     }
 }

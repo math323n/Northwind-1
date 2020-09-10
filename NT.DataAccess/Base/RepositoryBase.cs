@@ -23,36 +23,31 @@ namespace NT.DataAccess.RepositoryBase
             set { context = value; }
         }
 
-        public void Add(T t)
+        public virtual async Task AddAsync(T t)
         {
             context.Set<T>().Add(t);
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
 
-        public void Delete(T t)
+        public virtual async Task DeleteAsync(T t)
         {
             context.Set<T>().Remove(t);
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
 
-        public IEnumerable<T> GetAll()
-        {
-            return context.Set<T>();
-        }
-
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public virtual async Task<IEnumerable<T>> GetAllAsync()
         {
             return await context.Set<T>().ToListAsync();
         }
 
-        public virtual T GetBy(int id)
+        public virtual async Task<T> GetByAsync(int id)
         {
-            return context.Set<T>().Find(id);
+            return await context.Set<T>().FindAsync(id);
         }
 
-        public void Update()
+        public virtual async Task UpdateAsync()
         {
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
     }
 }
