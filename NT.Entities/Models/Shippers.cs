@@ -15,5 +15,10 @@ namespace NT.Entities.Models
         public string Phone { get; set; }
 
         public virtual ICollection<Orders> Orders { get; set; }
+
+        public override string ToString()
+        {
+            return CompanyName;
+        }
     }
 }
