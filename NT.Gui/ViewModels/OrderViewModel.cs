@@ -1,13 +1,10 @@
-using NT.DataAccess.Repos;
 using NT.Entities.Models;
 using NT.Gui;
 using NT.Gui.ViewModels.Base;
 using NT.Services;
-
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Threading.Tasks;
 
 namespace NT.ViewModels.ViewModels
@@ -72,11 +69,13 @@ namespace NT.ViewModels.ViewModels
         /// </summary>
         protected override async Task LoadAllAsync()
         {
-            OrderService service = new OrderService();
-
-            List<Orders> orders = await service.GetAllOrdersAsync();
-
+            OrderService orderService = new OrderService();
+            List<Orders> orders = await orderService.GetAllOrdersAsync();
             Orders.ReplaceWith(orders);
+
+            ShipperService shipperService = new ShipperService();
+            List<Shippers> shippers = await shipperService.GetAllShippersAsync();
+            Shippers.ReplaceWith(shippers);
         }
 
         /// <summary>
