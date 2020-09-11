@@ -4,7 +4,7 @@ using NT.Entities.Models;
 namespace NT.DataAccess.Factory
 {
     /// <summary>
-    ///  A Repository factory class
+    /// A Repository factory class
     /// </summary>
     /// <typeparam name="TRepository"></typeparam>
     /// <typeparam name="TEntity"></typeparam>

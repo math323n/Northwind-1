@@ -1,7 +1,6 @@
 using NT.DataAccess.Repos;
 using NT.Entities.Models;
 using NT.Gui;
-
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -42,8 +41,6 @@ namespace NT.ViewModels.ViewModels
             }
         }
         #endregion
-
-
 
         #region Methods
         /// <summary>

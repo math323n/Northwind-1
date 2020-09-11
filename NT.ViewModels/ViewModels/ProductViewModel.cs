@@ -4,7 +4,7 @@ using System.Text;
 
 namespace NT.ViewModels.ViewModels
 {
-    class ProductViewModel
+    public class ProductViewModel
     {
     }
 }

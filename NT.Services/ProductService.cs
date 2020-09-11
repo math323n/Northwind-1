@@ -6,15 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace NT.Services
 {
+    // Class for product services
     public class ProductService
     {
-        // Class for product services
-
         /// <summary>
         /// Calls a given endpoint and returns a string with the retrieved json data
         /// </summary>
@@ -51,6 +49,7 @@ namespace NT.Services
                 throw;
             }
         }
+
         /// <summary>
         /// Returns a list of all product objects.
         /// </summary>

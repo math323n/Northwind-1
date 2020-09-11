@@ -3,7 +3,6 @@ using System.Runtime.CompilerServices;
 
 namespace NT.ViewModels.ViewModels
 {
-
     public class ViewModel: INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -14,5 +13,4 @@ namespace NT.ViewModels.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
-
 }
