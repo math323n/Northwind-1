@@ -1,7 +1,4 @@
-﻿using NT.DataAccess.Repos;
-using NT.ViewModels.ViewModels;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -17,22 +14,13 @@ using System.Windows.Shapes;
 namespace NT.Gui.UserControls
 {
     /// <summary>
-    /// Interaction logic for OrdersControl.xaml
+    /// Interaction logic for ProductsControl.xaml
     /// </summary>
-    public partial class OrdersControl: UserControl
+    public partial class ProductsControl : UserControl
     {
-        private readonly OrderViewModel viewModel;
-
-        public OrdersControl()
+        public ProductsControl()
         {
             InitializeComponent();
-
-            viewModel = DataContext as OrderViewModel;
-        }
-
-        private async void OnLoaded(object sender, RoutedEventArgs e)
-        {
-            await viewModel.InitializeAsync();
         }
     }
 }
