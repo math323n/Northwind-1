@@ -2,64 +2,66 @@ using NT.DataAccess.Repos;
 using NT.Entities.Models;
 using NT.Gui;
 using NT.Gui.ViewModels.Base;
+using NT.Services;
 
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Threading.Tasks;
 
 namespace NT.ViewModels.ViewModels
 {
     public class OrderViewModel : ViewModelBase
     {
         #region Fields
-        private Orders selectedOrder;
-
+        protected ObservableCollection<Orders> orders;
+        protected Orders selectedOrder;
         #endregion
 
         #region Constructor
-
         public OrderViewModel()
         {
-
             Orders = new ObservableCollection<Orders>();
         }
         #endregion
 
-        #region Collections
-        public ObservableCollection<Orders> Orders { get; set; }
-        
+        #region Properties
+        public ObservableCollection<Orders> Orders
+        {
+            get
+            {
+                return orders;
+            }
+            set
+            {
+                SetProperty(ref orders, value);
+            }
+        }
+
         public Orders SelectedOrder
         {
             get
             {
                 return selectedOrder;
             }
-
             set
             {
-                selectedOrder = value;
-                OnPropertyChanged(nameof(SelectedOrder));
+                SetProperty(ref selectedOrder, value);
             }
         }
         #endregion
 
         #region Methods
         /// <summary>
-        /// Initializes all orders
+        /// Loads all orders from the endpoint
         /// </summary>
-        public void Initialize()
+        private new async Task LoadAllAsync()
         {
-            LoadAllOrders();
-        }
+            OrderService service = new OrderService();
 
-        /// <summary>
-        /// Loads all products
-        /// </summary>
-        private void LoadAllOrders()
-        {
-            OrderRepository orderRepository = new OrderRepository();
-            IEnumerable<Orders> orders = (IEnumerable<Orders>)orderRepository.GetAllAsync();
+            List<Orders> orders = await service.GetAllOrdersAsync();
+
             Orders.ReplaceWith(orders);
         }
 
