@@ -38,7 +38,8 @@
                   ItemsSource="{Binding Products}"
                   SelectedItem="{Binding SelectedProduct}"
                   Grid.ColumnSpan="3"
-                  Grid.RowSpan="2">
+                  Grid.RowSpan="2"
+                  Loaded="OnLoaded">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID"
