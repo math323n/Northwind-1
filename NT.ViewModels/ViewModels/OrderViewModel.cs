@@ -1,4 +1,4 @@
-﻿using NT.DataAccess.Repos;
+using NT.DataAccess.Repos;
 using NT.Entities.Models;
 using NT.Gui;
 
@@ -13,12 +13,14 @@ namespace NT.ViewModels.ViewModels
     {
         #region Fields
         private Orders selectedOrder;
+
         #endregion
 
         #region Constructor
 
         public OrderViewModel()
         {
+
             Orders = new ObservableCollection<Orders>();
         }
         #endregion
@@ -42,6 +44,7 @@ namespace NT.ViewModels.ViewModels
         #endregion
 
 
+
         #region Methods
         /// <summary>
         /// Initializes all orders
@@ -56,9 +59,11 @@ namespace NT.ViewModels.ViewModels
         /// </summary>
         private void LoadAllOrders()
         {
+
             OrderRepository orderRepository = new OrderRepository();
             IEnumerable<Orders> orders = (IEnumerable<Orders>)orderRepository.GetAllAsync();
             Orders.ReplaceWith(orders);
+
         }
 
         /// <summary>

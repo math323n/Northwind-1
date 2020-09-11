@@ -6,6 +6,7 @@ namespace NT.DataAccess.RepositoryBase
 {
     public interface IRepositoryBase<T>
     {
+
         NorthwindContext Context { get; set; }
 
         Task AddAsync(T t);
@@ -13,5 +14,6 @@ namespace NT.DataAccess.RepositoryBase
         Task<IEnumerable<T>> GetAllAsync();
         Task UpdateAsync();
         Task DeleteAsync(T t);
+
     }
 }

@@ -3,16 +3,28 @@ using NT.Entities.Models;
 
 namespace NT.DataAccess.Factory
 {
+    /// <summary>
+    ///  A Repository factory class
+    /// </summary>
+    /// <typeparam name="TRepository"></typeparam>
+    /// <typeparam name="TEntity"></typeparam>
     public class RepositoryFactory<TRepository, TEntity>
            where TRepository : IRepositoryBase<TEntity>, new()
            where TEntity : class
     {
+        #region Fields
         protected static RepositoryFactory<TRepository, TEntity> instance;
+
         protected NorthwindContext context;
 
-        public RepositoryFactory() { }
 
+        #region Constructor
+        public RepositoryFactory() { }
+        #endregion
+
+        #region Methods
         /// <summary>
+
         /// Constructor for repository factory, needs context
         /// </summary>
         /// <returns></returns>
@@ -26,6 +38,7 @@ namespace NT.DataAccess.Factory
             repo.Context = context;
             return repo;
         }
+
 
         /// <summary>
         /// Gets the instance of the <see cref="RepositoryFactory{T}"/> if it exitsts, else it creates it.
@@ -45,7 +58,10 @@ namespace NT.DataAccess.Factory
         /// </summary>
         public virtual void KillContext()
         {
+
             context.Dispose();
+
         }
+        #endregion
     }
 }
