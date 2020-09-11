@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace NT.Entities.Models
 {
@@ -24,5 +23,10 @@ namespace NT.Entities.Models
         public virtual Categories Category { get; set; }
         public virtual Suppliers Supplier { get; set; }
         public virtual ICollection<OrderDetails> OrderDetails { get; set; }
+
+        public override string ToString()
+        {
+            return ProductName;
+        }
     }
 }
