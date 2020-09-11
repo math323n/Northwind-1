@@ -16,7 +16,7 @@ namespace NT.DataAccess.Factory
         protected static RepositoryFactory<TRepository, TEntity> instance;
 
         protected NorthwindContext context;
-
+        #endregion
 
         #region Constructor
         public RepositoryFactory() { }
