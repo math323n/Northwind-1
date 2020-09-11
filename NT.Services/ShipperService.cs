@@ -32,28 +32,5 @@ namespace NT.Services
                 throw;
             }
         }
-
-        /// <summary>
-        /// Returns a list of all order objects by ID.
-        /// </summary>
-        /// <returns></returns>
-        public virtual async Task<List<Shippers>> GetAllShippersByIdAsync()
-        {
-            try
-            {
-                // Call the web API
-                string json = await CallWebApiAsync("http://10.143.74.234:5000/order/all/");
-
-                // Deserialize the JSON data into an object list
-                List<Shippers> shipperData = JsonConvert.DeserializeObject<List<Shippers>>(json);
-
-                // Return the object list
-                return shipperData;
-            }
-            catch(Exception)
-            {
-                throw;
-            }
-        }
     }
 }
