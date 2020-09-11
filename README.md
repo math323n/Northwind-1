@@ -12,7 +12,7 @@ A program for managing Northwind products & orders.
 
 - Products
   - /product/all
-  - /product/id
+  - /product/productId
 
 - Shippers
   - /shipper/all
