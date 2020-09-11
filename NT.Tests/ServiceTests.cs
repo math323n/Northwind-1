@@ -61,6 +61,23 @@ namespace NT.Tests
         }
         #endregion
 
+        #region Get Product By Id Test
+        [TestMethod]
+        public async Task GetProductByIdAsyncTest()
+        {
+            // Arrange
+            ProductService service;
+            Products product;
+
+            // Act
+            service = new ProductService();
+            product = await service.GetProductByIdAsync(1);
+
+            // Assert
+            Assert.IsNotNull(product);
+        }
+        #endregion
+
         #region Get All Shippers Test
         [TestMethod]
         public async Task GetAllShippersAsyncTest()
