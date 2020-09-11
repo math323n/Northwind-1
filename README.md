@@ -4,7 +4,7 @@ Northwind Traders Logistics Management System
 
 A program for managing Northwind products & orders.
 
-### Api Endpoints (10.143.74.234:49801)
+### Api Endpoints (10.143.74.234:5000)
  
 - Order
   - /order/all
