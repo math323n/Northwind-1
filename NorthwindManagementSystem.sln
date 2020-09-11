@@ -11,13 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NT.Services", "NT.Services\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NT.Entities", "NT.Entities\NT.Entities.csproj", "{41991F12-273F-4B90-8A73-E5CA7444EE80}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NT.WebServer", "NT.WebServer\NT.WebServer.csproj", "{92554E26-DE81-4EB6-B21F-C733717BA7FC}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NT.DataAccess", "NT.DataAccess\NT.DataAccess.csproj", "{912C8119-F6AC-46E6-A43A-9F3CA6751C95}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NT.WebApi", "NT.WebApi\NT.WebApi.csproj", "{A0827936-7BAF-4B1B-A691-BFD17B38F49B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NT.Tests", "NT.Tests\NT.Tests.csproj", "{042FE5DB-762E-4293-8270-6024544DF4D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NT.Tests", "NT.Tests\NT.Tests.csproj", "{042FE5DB-762E-4293-8270-6024544DF4D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +39,6 @@ Global
 		{41991F12-273F-4B90-8A73-E5CA7444EE80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41991F12-273F-4B90-8A73-E5CA7444EE80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41991F12-273F-4B90-8A73-E5CA7444EE80}.Release|Any CPU.Build.0 = Release|Any CPU
-		{92554E26-DE81-4EB6-B21F-C733717BA7FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{92554E26-DE81-4EB6-B21F-C733717BA7FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{92554E26-DE81-4EB6-B21F-C733717BA7FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{92554E26-DE81-4EB6-B21F-C733717BA7FC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{912C8119-F6AC-46E6-A43A-9F3CA6751C95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{912C8119-F6AC-46E6-A43A-9F3CA6751C95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{912C8119-F6AC-46E6-A43A-9F3CA6751C95}.Release|Any CPU.ActiveCfg = Release|Any CPU
