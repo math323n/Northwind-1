@@ -16,7 +16,7 @@ namespace NT.WebApi.Controllers
             return await new ProductRepository().GetAllAsync();
         }
 
-        [HttpGet("ALL/{productId}")]
+        [HttpGet("{productId}")]
         public async Task<Products> GetByIdAsync(int productId)
         {
             return await new ProductRepository().GetByIdAsync(productId);

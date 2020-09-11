@@ -2,6 +2,7 @@
 using NT.DataAccess.RepositoryBase;
 using NT.Entities.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace NT.DataAccess.Repos
@@ -19,6 +20,7 @@ namespace NT.DataAccess.Repos
         {
             return await context.Set<Products>()
                 .Include("Category")
+                .Where(p => p.UnitsInStock < 10)
                 .ToListAsync();
         }
     }
