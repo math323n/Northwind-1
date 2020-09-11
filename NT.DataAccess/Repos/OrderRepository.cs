@@ -23,6 +23,7 @@ namespace NT.DataAccess.Repos
             return await context.Set<Orders>()
                 .Include("Customer")
                 .Include("OrderDetails")
+                .Where(o => o.ShippedDate == null)
                 .ToListAsync();
         }
     }
