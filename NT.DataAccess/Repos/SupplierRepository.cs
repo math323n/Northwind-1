@@ -5,6 +5,5 @@ namespace NT.DataAccess.Repos
 {
     public class SupplierRepository : RepositoryBase<Suppliers>
     {
-
     }
 }
