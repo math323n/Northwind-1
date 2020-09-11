@@ -33,15 +33,14 @@ namespace NT.Tests
         {
             // Arrange
             ProductService service;
-
             List<Products> productList;
 
             // Act
             service = new ProductService();
-            //productList = await service.GetAllProducts();
+            productList = await service.GetAllProductsAsync();
 
             // Assert
-           // Assert.IsTrue(productList.Count > 0);
+            Assert.IsTrue(productList.Count > 0);
         }
     }
 }
