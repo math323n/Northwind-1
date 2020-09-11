@@ -3,9 +3,7 @@ using NT.ViewModels.ViewModels;
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,23 +14,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace NT.Gui
+namespace NT.Gui.UserControls
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for OrdersControl.xaml
     /// </summary>
-    public partial class MainWindow: Window
+    public partial class OrdersControl: UserControl
     {
-       
 
-        public MainWindow()
+        public OrdersControl()
         {
             InitializeComponent();
-            
         }
 
-   
-
     }
-
 }

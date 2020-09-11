@@ -23,8 +23,4 @@
     <ProjectReference Include="..\NT.ViewModels\NT.ViewModels.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="UserControls\" />
-  </ItemGroup>
-
 </Project>
