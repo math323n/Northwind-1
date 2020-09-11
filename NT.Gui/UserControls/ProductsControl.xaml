@@ -84,6 +84,5 @@
                     Background="LightBlue">
             </Button>
         </StackPanel>
-
     </Grid>
 </UserControl>
