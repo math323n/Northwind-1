@@ -9,6 +9,7 @@ namespace NT.Tests
     [TestClass]
     public class ServiceTest
     {
+        #region Get All Orders Test
         [TestMethod]
         public async Task GetAllOrdersAsyncTest()
         {
@@ -24,7 +25,9 @@ namespace NT.Tests
             // Assert
             Assert.IsTrue(orderList.Count > 0);
         }
+        #endregion
 
+        #region Get All Products Test
         [TestMethod]
         public async Task GetAllProductsAsyncTest()
         {
@@ -39,5 +42,23 @@ namespace NT.Tests
             // Assert
             Assert.IsTrue(productList.Count > 0);
         }
+        #endregion
+
+        #region Get All Shippers Test
+        [TestMethod]
+        public async Task GetAllShippersAsyncTest()
+        {
+            // Arrange
+            ShipperService service;
+            List<Shippers> shippersList;
+
+            // Act
+            service = new ShipperService();
+            shippersList = await service.GetAllShippersAsync();
+
+            // Assert
+            Assert.IsTrue(shippersList.Count > 0);
+        }
+        #endregion
     }
 }
