@@ -43,7 +43,8 @@
         <!--#endregion-->
 
         <!--#region Content -->
-        <TabControl Grid.Row="1">
+        <TabControl Grid.Row="1"
+                    Background="#FFFAFA">
 
             <!--#region Orders-->
             <TabItem Header="Orders">
