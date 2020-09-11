@@ -58,7 +58,6 @@
                    FontSize="20" />
             <ComboBox ItemsSource="{Binding Products}"
                       Width="100" />
-
         </StackPanel>
 
         <StackPanel Grid.Row="1"
