@@ -1,19 +1,19 @@
-﻿using System;
+﻿using NT.Entities.Models;
 using System.Collections.Generic;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace NT.DataAccess.RepositoryBase
 {
     public interface IRepositoryBase<T>
     {
-        //NorthwindContext Context { get; set; }
 
-        IEnumerable<T> GetAll();
+        NorthwindContext Context { get; set; }
 
-        T GetBy(int id);
+        Task AddAsync(T t);
+        Task<T> GetByIdAsync(int id);
+        Task<IEnumerable<T>> GetAllAsync();
+        Task UpdateAsync();
+        Task DeleteAsync(T t);
 
-        void Update();
-        void Add(T t);
-        void Delete(T t);
     }
 }

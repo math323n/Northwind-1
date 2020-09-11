@@ -5,10 +5,196 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NT.Gui"
         mc:Ignorable="d"
-        Title="MainWindow"
-        Height="450"
-        Width="800">
+        Height="646"
+        Width="680">
+
     <Grid>
 
+        <!-- #region Grid Definitions -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="64" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!-- #endregion -->
+
+        <!--#region Header -->
+        <Grid Grid.Row="0"
+              Background="LightBlue">
+
+            <!--#region Grid Row Definition -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="8" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <!--#endregion-->
+
+            <!--#region Banner -->
+            <Label Grid.Row="1"
+                   Content="NORTHWIND TRADERS LOGISTICS MANAGEMENT SYSTEM"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center"
+                   FontSize="23.5"
+                   FontWeight="Bold"
+                   FontFamily="Bahnschrift SemiBold" />
+            <!--#endregion-->
+
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region Content -->
+        <TabControl Grid.Row="1">
+
+            <!--#region Orders-->
+            <TabItem Header="Orders">
+                <UserControl>
+                    <Grid>
+                        <!--#region Grid Column Definitions -->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="58.047" />
+                            <ColumnDefinition Width="16.796" />
+                            <ColumnDefinition Width="125.157" />
+                            <ColumnDefinition Width="400" />
+                        </Grid.ColumnDefinitions>
+                        <!--#endregion-->
+
+                        <!--#region Grid Row Difinitions -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <!--#endregion-->
+
+                        <!-- #Region Order ListView -->
+                        <ListView x:Name="listView_Orders"
+                                  Grid.RowSpan="2"
+                                  Background="LightSlateGray"
+                                  ItemsSource="{Binding Orders}"
+                                  SelectedItem="{Binding SelectedOrder}"
+                                  Grid.ColumnSpan="3">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="ID"
+                                                    DisplayMemberBinding="{Binding OrderId}"
+                                                    Width="60" />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <!--#endregion-->
+
+                        <!--#region Order Details -->
+                        <StackPanel Grid.Column="3"
+                                    Margin="20,0,20,0"
+                                    VerticalAlignment="Center"
+                                    Orientation="Horizontal">
+                            <TextBlock Text="Packed: "
+                                       FontSize="20" />
+                            <Viewbox Height="20">
+                                <CheckBox IsChecked="{Binding IsShippedCheckbox}" />
+                            </Viewbox>
+
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="1"
+                                    Grid.Column="3"
+                                    Margin="12,0,0,0"
+                                    VerticalAlignment="Top"
+                                    Orientation="Horizontal">
+                            <Label Content="Select shipper: "
+                                   FontSize="20" />
+                            <ComboBox ItemsSource="{Binding Shippers}"
+                                      Width="100" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="1"
+                                    Grid.Column="3"
+                                    VerticalAlignment="Top"
+                                    Orientation="Vertical"
+                                    Margin="10,75,0,0">
+                            <Button Content="Ship order"
+                                    Width="100"
+                                    Height="50">
+                            </Button>
+                        </StackPanel>
+                        <!--#endregion-->
+
+                    </Grid>
+                </UserControl>
+            </TabItem>
+            <!--#endregion-->
+
+            <!--#region Products -->
+            <TabItem Header="Products">
+                <UserControl>
+                    <Grid>
+                        <!--#region Grid Column Difinitions -->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="11.535" />
+                            <ColumnDefinition Width="20.766" />
+                            <ColumnDefinition Width="167.699" />
+                            <ColumnDefinition Width="400" />
+                        </Grid.ColumnDefinitions>
+                        <!--#endregion-->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <!-- #Region Order ListView -->
+                        <ListView x:Name="listView_Products"
+                                  Background="LightSlateGray"
+                                  ItemsSource="{Binding Products}"
+                                  SelectedItem="{Binding SelectedProduct}"
+                                  Grid.ColumnSpan="3"
+                                  Grid.RowSpan="2">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="ID"
+                                                    DisplayMemberBinding="{Binding ProductId}"
+                                                    Width="60" />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <!--#endregion-->
+                        <StackPanel Grid.Column="3"
+                                    Margin="20,0,20,0"
+                                    VerticalAlignment="Center"
+                                    Orientation="Horizontal">
+                            <Label Content="Select Product: "
+                                   FontSize="20" />
+                            <ComboBox ItemsSource="{Binding Products}"
+                                      Width="100" />
+
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="1"
+                                    Grid.Column="3"
+                                    Margin="20,0,0,0"
+                                    VerticalAlignment="Top"
+                                    Orientation="Horizontal">
+                            <Label Content="Quantity: "
+                                   FontSize="20" />
+                            <TextBox Width="100"
+                                     Margin="50,0,0,0"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="1"
+                                    Grid.Column="3"
+                                    VerticalAlignment="Top"
+                                    Orientation="Vertical"
+                                    Margin="30,75,0,0">
+                            <Button Content="Make Order"
+                                    Width="100"
+                                    Height="50">
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </UserControl>
+            </TabItem>
+            <!--#endregion-->
+
+        </TabControl>
+        <!--#endregion-->
+
     </Grid>
+
 </Window>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using NT.Entities.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -6,76 +7,54 @@ namespace NT.DataAccess.RepositoryBase
 {
     public class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
-        //protected NorthwindContext context;
 
-        //public RepositoryBase(NorthwindContext context)
-        //{
-        //    Context = context;
-        //}
+        protected NorthwindContext context;
 
-        //public RepositoryBase() { }
-
-        //public virtual NorthwindContext Context
-        //{
-        //    get { return context; }
-        //    set { context = value; }
-        //}
-
-        //public void Add(T t)
-        //{
-        //    context.Set<T>().Add(t);
-        //    context.SaveChanges();
-        //}
-
-        //public void Delete(T t)
-        //{
-        //    context.Set<T>().Remove(t);
-        //    context.SaveChanges();
-        //}
-
-        //public IEnumerable<T> GetAll()
-        //{
-        //    return context.Set<T>();
-        //}
-
-        //public async Task<IEnumerable<T>> GetAllAsync()
-        //{
-        //    return await context.Set<T>().ToListAsync();
-        //}
-
-        //public virtual T GetBy(int id)
-        //{
-        //    return context.Set<T>().Find(id);
-        //}
-
-        //public void Update()
-        //{
-        //    context.SaveChanges();
-        //}
-
-        public void Add(T t)
+        public RepositoryBase(NorthwindContext context)
         {
-            throw new NotImplementedException();
+            Context = context;
         }
 
-        public void Delete(T t)
+        public RepositoryBase()
         {
-            throw new NotImplementedException();
+            context = new NorthwindContext();
         }
 
-        public IEnumerable<T> GetAll()
+        public virtual NorthwindContext Context
         {
-            throw new NotImplementedException();
+            get { return context; }
+            set { context = value; }
         }
 
-        public T GetBy(int id)
+        public virtual async Task AddAsync(T t)
         {
-            throw new NotImplementedException();
+            context.Set<T>().Add(t);
+            await context.SaveChangesAsync();
         }
 
-        public void Update()
+
+        public virtual async Task<T> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await context.Set<T>().FindAsync(id);
+        }
+
+
+        public virtual async Task<IEnumerable<T>> GetAllAsync()
+        {
+            return await context.Set<T>().ToListAsync();
+        }
+
+
+        public virtual async Task UpdateAsync()
+        {
+            await context.SaveChangesAsync();
+        }
+
+
+        public virtual async Task DeleteAsync(T t)
+        {
+            context.Set<T>().Remove(t);
+            await context.SaveChangesAsync();
         }
     }
 }

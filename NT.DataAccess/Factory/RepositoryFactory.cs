@@ -1,4 +1,5 @@
 ﻿using NT.DataAccess.RepositoryBase;
+using NT.Entities.Models;
 
 namespace NT.DataAccess.Factory
 {
@@ -8,13 +9,14 @@ namespace NT.DataAccess.Factory
     /// <typeparam name="TRepository"></typeparam>
     /// <typeparam name="TEntity"></typeparam>
     public class RepositoryFactory<TRepository, TEntity>
-         where TRepository : IRepositoryBase<TEntity>, new()
-         where TEntity : class
+           where TRepository : IRepositoryBase<TEntity>, new()
+           where TEntity : class
     {
         #region Fields
         protected static RepositoryFactory<TRepository, TEntity> instance;
-        //protected NorthwindContext context;
-        #endregion
+
+        protected NorthwindContext context;
+
 
         #region Constructor
         public RepositoryFactory() { }
@@ -22,19 +24,21 @@ namespace NT.DataAccess.Factory
 
         #region Methods
         /// <summary>
-        ///  Constructor for repository factory, needs context
+
+        /// Constructor for repository factory, needs context
         /// </summary>
         /// <returns></returns>
-        /* public virtual TRepository Create()
-         {
-            if(context is null)
-             {
-                 context = new NorthwindContext();
-             }
-             TRepository repo = new TRepository();
-             repo.Context = context;
-             return repo;
-         }*/
+        public virtual TRepository Create()
+        {
+            if (context is null)
+            {
+                context = new NorthwindContext();
+            }
+            TRepository repo = new TRepository();
+            repo.Context = context;
+            return repo;
+        }
+
 
         /// <summary>
         /// Gets the instance of the <see cref="RepositoryFactory{T}"/> if it exitsts, else it creates it.
@@ -42,7 +46,7 @@ namespace NT.DataAccess.Factory
         /// <returns>An instance of <see cref="RepositoryFactory{T}"/></returns>
         public static RepositoryFactory<TRepository, TEntity> GetInstance()
         {
-            if(instance is null)
+            if (instance is null)
             {
                 instance = new RepositoryFactory<TRepository, TEntity>();
             }
@@ -54,8 +58,9 @@ namespace NT.DataAccess.Factory
         /// </summary>
         public virtual void KillContext()
         {
-            // Needs context
-            //context.Dispose();
+
+            context.Dispose();
+
         }
         #endregion
     }
