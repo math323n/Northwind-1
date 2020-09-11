@@ -60,7 +60,7 @@ namespace NT.Services
             try
             {
                 // Call the web API
-                string json = await CallWebApiAsync("http://10.143.74.234:49801/order/all");
+                string json = await CallWebApiAsync("http://10.143.74.234:5000/order/all");
 
                 // Deserialize the JSON data into an object list
                 List<Orders> orderData = JsonConvert.DeserializeObject<List<Orders>>(json);
@@ -83,7 +83,7 @@ namespace NT.Services
             try
             {
                 // Call the web API
-                string json = await CallWebApiAsync("http://10.143.74.234:49801/order/all/");
+                string json = await CallWebApiAsync("http://10.143.74.234:5000/order/all/");
 
                 // Deserialize the JSON data into an object list
                 List<Orders> orderData = JsonConvert.DeserializeObject<List<Orders>>(json);
@@ -106,7 +106,7 @@ namespace NT.Services
             try
             {
                 // Call the web API
-                string json = await CallWebApiAsync("http://10.143.74.234:49801/product/all");
+                string json = await CallWebApiAsync("http://10.143.74.234:5000/product/all");
 
                 // Deserialize the JSON data into an object list
                 List<Products> productData = JsonConvert.DeserializeObject<List<Products>>(json);
