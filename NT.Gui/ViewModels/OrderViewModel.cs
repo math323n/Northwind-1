@@ -15,6 +15,7 @@ namespace NT.ViewModels.ViewModels
     public class OrderViewModel : ViewModelBase
     {
         #region Fields
+        protected ObservableCollection<Shippers> shippers;
         protected ObservableCollection<Orders> orders;
         protected Orders selectedOrder;
         #endregion
@@ -22,12 +23,25 @@ namespace NT.ViewModels.ViewModels
         #region Constructor
         public OrderViewModel()
         {
+            Shippers = new ObservableCollection<Shippers>();
             Orders = new ObservableCollection<Orders>();
         }
         #endregion
 
         #region Properties
-        public ObservableCollection<Orders> Orders
+        public virtual ObservableCollection<Shippers> Shippers
+        {
+            get
+            {
+                return shippers;
+            }
+            set
+            {
+                SetProperty(ref shippers, value);
+            }
+        }
+
+        public virtual ObservableCollection<Orders> Orders
         {
             get
             {
@@ -39,7 +53,7 @@ namespace NT.ViewModels.ViewModels
             }
         }
 
-        public Orders SelectedOrder
+        public virtual Orders SelectedOrder
         {
             get
             {
