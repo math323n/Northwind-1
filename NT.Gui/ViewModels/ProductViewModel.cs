@@ -2,11 +2,8 @@
 using NT.Gui;
 using NT.Gui.ViewModels.Base;
 using NT.Services;
-
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace NT.ViewModels.ViewModels
