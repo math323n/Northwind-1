@@ -9,6 +9,7 @@ namespace NT.Tests
     [TestClass]
     public class ServiceTest
     {
+        #region Get All Orders Test
         [TestMethod]
         public async Task GetAllOrdersAsyncTest()
         {
@@ -24,7 +25,26 @@ namespace NT.Tests
             // Assert
             Assert.IsTrue(orderList.Count > 0);
         }
+        #endregion
 
+        #region Get Order By Id Test
+        [TestMethod]
+        public async Task GetOrderByIdAsyncTest()
+        {
+            // Arrange
+            OrderService service;
+            Orders order;
+
+            // Act
+            service = new OrderService();
+            order = await service.GetOrderByIdAsync("anton");
+
+            // Assert
+            Assert.IsNotNull(order);
+        }
+        #endregion
+
+        #region Get All Products Test
         [TestMethod]
         public async Task GetAllProductsAsyncTest()
         {
@@ -39,5 +59,40 @@ namespace NT.Tests
             // Assert
             Assert.IsTrue(productList.Count > 0);
         }
+        #endregion
+
+        #region Get Product By Id Test
+        [TestMethod]
+        public async Task GetProductByIdAsyncTest()
+        {
+            // Arrange
+            ProductService service;
+            Products product;
+
+            // Act
+            service = new ProductService();
+            product = await service.GetProductByIdAsync(1);
+
+            // Assert
+            Assert.IsNotNull(product);
+        }
+        #endregion
+
+        #region Get All Shippers Test
+        [TestMethod]
+        public async Task GetAllShippersAsyncTest()
+        {
+            // Arrange
+            ShipperService service;
+            List<Shippers> shippersList;
+
+            // Act
+            service = new ShipperService();
+            shippersList = await service.GetAllShippersAsync();
+
+            // Assert
+            Assert.IsTrue(shippersList.Count > 0);
+        }
+        #endregion
     }
 }

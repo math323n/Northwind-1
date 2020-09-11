@@ -32,5 +32,28 @@ namespace NT.Services
                 throw;
             }
         }
+
+        /// <summary>
+        /// Returns a product by id
+        /// </summary>
+        /// <returns></returns>
+        public virtual async Task<Products> GetProductByIdAsync(int productId)
+        {
+            try
+            {
+                // Call the web API
+                string json = await CallWebApiAsync($"http://10.143.74.234:5000/product/{productId}");
+
+                // Deserialize the JSON data into an object list
+                Products product = JsonConvert.DeserializeObject<Products>(json);
+
+                // Return the object list
+                return product;
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+        }
     }
 }

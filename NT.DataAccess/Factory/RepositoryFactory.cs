@@ -14,7 +14,6 @@ namespace NT.DataAccess.Factory
     {
         #region Fields
         protected static RepositoryFactory<TRepository, TEntity> instance;
-
         protected NorthwindContext context;
         #endregion
 
@@ -24,7 +23,6 @@ namespace NT.DataAccess.Factory
 
         #region Methods
         /// <summary>
-
         /// Constructor for repository factory, needs context
         /// </summary>
         /// <returns></returns>
