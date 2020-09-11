@@ -34,7 +34,7 @@
 
         <!-- #Region Order ListView -->
         <ListView x:Name="listView_Products"
-                  Background="LightSlateGray"
+                  Background="LightBlue"
                   ItemsSource="{Binding Products}"
                   SelectedItem="{Binding SelectedProduct}"
                   Grid.ColumnSpan="3"
@@ -79,7 +79,10 @@
                     Margin="30,75,0,0">
             <Button Content="Make Order"
                     Width="100"
-                    Height="50">
+                    Height="50"
+                    FontSize="16"
+                    FontFamily="Corbel"
+                    Background="LightBlue">
             </Button>
         </StackPanel>
 
