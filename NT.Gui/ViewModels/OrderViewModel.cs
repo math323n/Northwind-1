@@ -56,7 +56,7 @@ namespace NT.ViewModels.ViewModels
         /// <summary>
         /// Loads all orders from the endpoint
         /// </summary>
-        private new async Task LoadAllAsync()
+        protected override async Task LoadAllAsync()
         {
             OrderService service = new OrderService();
 
