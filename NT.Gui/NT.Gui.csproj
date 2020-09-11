@@ -19,8 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\NT.DataAccess\NT.DataAccess.csproj" />
     <ProjectReference Include="..\NT.Entities\NT.Entities.csproj" />
-    <ProjectReference Include="..\NT.ViewModels\NT.ViewModels.csproj" />
+    <ProjectReference Include="..\NT.Utilities\NT.Utilities.csproj" />
   </ItemGroup>
 
 </Project>

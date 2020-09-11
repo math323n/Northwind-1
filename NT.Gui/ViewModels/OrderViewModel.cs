@@ -1,6 +1,8 @@
 using NT.DataAccess.Repos;
 using NT.Entities.Models;
 using NT.Gui;
+using NT.Gui.ViewModels.Base;
+
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,7 +10,7 @@ using System.ComponentModel;
 
 namespace NT.ViewModels.ViewModels
 {
-    public class OrderViewModel : ViewModel, INotifyPropertyChanged
+    public class OrderViewModel : ViewModelBase
     {
         #region Fields
         private Orders selectedOrder;
@@ -56,11 +58,9 @@ namespace NT.ViewModels.ViewModels
         /// </summary>
         private void LoadAllOrders()
         {
-
             OrderRepository orderRepository = new OrderRepository();
             IEnumerable<Orders> orders = (IEnumerable<Orders>)orderRepository.GetAllAsync();
             Orders.ReplaceWith(orders);
-
         }
 
         /// <summary>
