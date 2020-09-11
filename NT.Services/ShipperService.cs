@@ -1,16 +1,16 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using NT.Entities.Models;
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-
-using NT.Entities.Models;
 
 namespace NT.Services
 {
-    public class OrderService
+   public class ShipperService
     {
         // Class for order Services
 
@@ -55,18 +55,18 @@ namespace NT.Services
         /// Returns a list of all order objects.
         /// </summary>
         /// <returns></returns>
-        public virtual async Task<List<Orders>> GetAllOrdersAsync()
+        public virtual async Task<List<Shippers>> GetAllShippersAsync()
         {
             try
             {
                 // Call the web API
-                string json = await CallWebApiAsync("http://10.143.74.234:5000/order/all");
+                string json = await CallWebApiAsync("http://10.143.74.234:5000/shipper/all");
 
                 // Deserialize the JSON data into an object list
-                List<Orders> orderData = JsonConvert.DeserializeObject<List<Orders>>(json);
+                List<Shippers> shipperData = JsonConvert.DeserializeObject<List<Shippers>>(json);
 
                 // Return the object list
-                return orderData;
+                return shipperData;
             }
             catch(Exception)
             {
@@ -78,7 +78,7 @@ namespace NT.Services
         /// Returns a list of all order objects by ID.
         /// </summary>
         /// <returns></returns>
-        public virtual async Task<List<Orders>> GetAllOrdersByIdAsync()
+        public virtual async Task<List<Shippers>> GetAllShippersByIdAsync()
         {
             try
             {
@@ -86,10 +86,10 @@ namespace NT.Services
                 string json = await CallWebApiAsync("http://10.143.74.234:5000/order/all/");
 
                 // Deserialize the JSON data into an object list
-                List<Orders> orderData = JsonConvert.DeserializeObject<List<Orders>>(json);
+                List<Shippers> shipperData = JsonConvert.DeserializeObject<List<Shippers>>(json);
 
                 // Return the object list
-                return orderData;
+                return shipperData;
             }
             catch(Exception)
             {
