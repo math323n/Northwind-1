@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NT.DataAccess.Repos;
 using NT.Entities.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace NT.WebApi.Controllers
@@ -13,13 +11,13 @@ namespace NT.WebApi.Controllers
     public class OrderController
     {
         [HttpGet("all")]
-        public async Task<IEnumerable<Orders>> GetAll()
+        public async Task<IEnumerable<Orders>> GetAllAsync()
         {
             return await new OrderRepository().GetAllAsync();
         }
 
         [HttpGet("all/{customerID}")]
-        public async Task<IEnumerable<Orders>> GetAllById(string customerId)
+        public async Task<IEnumerable<Orders>> GetAllByIdAsync(string customerId)
         {
             return await new OrderRepository().GetByIdAsync(customerId);
         }

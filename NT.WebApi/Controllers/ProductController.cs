@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NT.DataAccess.Repos;
 using NT.Entities.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace NT.WebApi.Controllers
@@ -13,9 +11,15 @@ namespace NT.WebApi.Controllers
     public class ProductController
     {
         [HttpGet("all")]
-        public async Task<IEnumerable<Products>> GetAll()
+        public async Task<IEnumerable<Products>> GetAllAsync()
         {
             return await new ProductRepository().GetAllAsync();
+        }
+
+        [HttpGet("ALL/{productId}")]
+        public async Task<Products> GetByIdAsync(int productId)
+        {
+            return await new ProductRepository().GetByIdAsync(productId);
         }
     }
 }

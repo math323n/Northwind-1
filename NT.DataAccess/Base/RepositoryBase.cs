@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NT.Entities.Models;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -19,6 +18,7 @@ namespace NT.DataAccess.RepositoryBase
         {
             context = new NorthwindContext();
         }
+
         public virtual NorthwindContext Context
         {
             get { return context; }
@@ -31,10 +31,9 @@ namespace NT.DataAccess.RepositoryBase
             await context.SaveChangesAsync();
         }
 
-        public virtual async Task DeleteAsync(T t)
+        public virtual async Task<T> GetByIdAsync(int id)
         {
-            context.Set<T>().Remove(t);
-            await context.SaveChangesAsync();
+            return await context.Set<T>().FindAsync(id);
         }
 
         public virtual async Task<IEnumerable<T>> GetAllAsync()
@@ -42,13 +41,14 @@ namespace NT.DataAccess.RepositoryBase
             return await context.Set<T>().ToListAsync();
         }
 
-        public virtual async Task<T> GetByAsync(int id)
-        {
-            return await context.Set<T>().FindAsync(id);
-        }
-
         public virtual async Task UpdateAsync()
         {
+            await context.SaveChangesAsync();
+        }
+
+        public virtual async Task DeleteAsync(T t)
+        {
+            context.Set<T>().Remove(t);
             await context.SaveChangesAsync();
         }
     }
