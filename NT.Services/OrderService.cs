@@ -37,18 +37,18 @@ namespace NT.Services
         /// Returns a list of all order objects by ID.
         /// </summary>
         /// <returns></returns>
-        public virtual async Task<List<Orders>> GetAllOrdersByIdAsync()
+        public virtual async Task<Orders> GetOrderByIdAsync(string customerId)
         {
             try
             {
                 // Call the web API
-                string json = await CallWebApiAsync("http://10.143.74.234:5000/order/all/");
+                string json = await CallWebApiAsync($"http://10.143.74.234:5000/order/{customerId}");
 
                 // Deserialize the JSON data into an object list
-                List<Orders> orderData = JsonConvert.DeserializeObject<List<Orders>>(json);
+                Orders order = JsonConvert.DeserializeObject<Orders>(json);
 
                 // Return the object list
-                return orderData;
+                return order;
             }
             catch(Exception)
             {

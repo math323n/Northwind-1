@@ -27,6 +27,23 @@ namespace NT.Tests
         }
         #endregion
 
+        #region Get Order By Id Test
+        [TestMethod]
+        public async Task GetOrderByIdAsyncTest()
+        {
+            // Arrange
+            OrderService service;
+            Orders order;
+
+            // Act
+            service = new OrderService();
+            order = await service.GetOrderByIdAsync("anton");
+
+            // Assert
+            Assert.IsNotNull(order);
+        }
+        #endregion
+
         #region Get All Products Test
         [TestMethod]
         public async Task GetAllProductsAsyncTest()
