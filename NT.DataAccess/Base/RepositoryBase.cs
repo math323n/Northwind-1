@@ -1,49 +1,55 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using NT.Entities.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace NT.DataAccess.RepositoryBase
 {
-    public class RepositoryBase<T>: IRepositoryBase<T> where T : class
+    public class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
-        #region Fields
-        // Static Northwind context
-       // protected static NorthwindContext context;
-        #endregion
+        protected NorthwindContext context;
 
-        #region Constructor
-        static RepositoryBase()
+        public RepositoryBase(NorthwindContext context)
         {
-           // context = new NorthwindContext();
+            Context = context;
         }
 
-        protected RepositoryBase() { }
-        #endregion
-
-        #region Methods
-        public virtual void Add(T t)
+        public RepositoryBase()
         {
-            throw new NotImplementedException();
+            context = new NorthwindContext();
         }
 
-        public virtual void Delete(T t)
+        public virtual NorthwindContext Context
         {
-            throw new NotImplementedException();
+            get { return context; }
+            set { context = value; }
         }
 
-        public virtual IEnumerable<T> GetAll()
+        public virtual async Task AddAsync(T t)
         {
-            throw new NotImplementedException();
+            context.Set<T>().Add(t);
+            await context.SaveChangesAsync();
         }
 
-        public virtual T GetBy(int id)
+        public virtual async Task<T> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await context.Set<T>().FindAsync(id);
         }
 
-        public virtual void Update(T t)
+        public virtual async Task<IEnumerable<T>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await context.Set<T>().ToListAsync();
         }
-        #endregion
+
+        public virtual async Task UpdateAsync()
+        {
+            await context.SaveChangesAsync();
+        }
+
+        public virtual async Task DeleteAsync(T t)
+        {
+            context.Set<T>().Remove(t);
+            await context.SaveChangesAsync();
+        }
     }
 }

@@ -1,16 +1,17 @@
-﻿using System;
+﻿using NT.Entities.Models;
 using System.Collections.Generic;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace NT.DataAccess.RepositoryBase
 {
-    public interface IRepositoryBase<TEntity>
+    public interface IRepositoryBase<T>
     {
-        IEnumerable<TEntity> GetAll();
-        TEntity GetBy(int id);
-        void Update(TEntity t);
-        void Add(TEntity t);
-        void Delete(TEntity t);
+        NorthwindContext Context { get; set; }
 
+        Task AddAsync(T t);
+        Task<T> GetByIdAsync(int id);
+        Task<IEnumerable<T>> GetAllAsync();
+        Task UpdateAsync();
+        Task DeleteAsync(T t);
     }
 }
