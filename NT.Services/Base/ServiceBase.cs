@@ -12,6 +12,15 @@ namespace NT.Services.Base
         /// </summary>
         /// <param name="url"></param>
         /// <returns></returns>
+        /// <exception cref="NotSupportedException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="System.Security.SecurityException"></exception>
+        /// <exception cref="UriFormatException"></exception>
+        /// <exception cref="ProtocolViolationException"></exception>
+        /// <exception cref="ObjectDisposedException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <exception cref="InvalidOperationException"></exception>
         protected virtual async Task<string> CallWebApiAsync(string url)
         {
             try
@@ -43,5 +52,6 @@ namespace NT.Services.Base
                 throw;
             }
         }
+       
     }
 }

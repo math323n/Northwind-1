@@ -38,12 +38,10 @@ namespace NT.Gui.UserControls
                     await viewModel.LoadAllAsync();
                 }
             }
-            catch(Exception ex)
-            {
-                // Trim off duplicate text on error message
-                string ErrorDetail = ex.Message[0..^65];
+            catch(Exception)
+            { 
                 // Error displayed on GUI
-                MessageBox.Show($"Could not establish connection with DataBase {ErrorDetail}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Could not establish connection with DataBase", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
