@@ -10,6 +10,10 @@ namespace NT.WebApi.Controllers
     [ApiController]
     public class SupplierController : Controller
     {
+        /// <summary>
+        /// Gets all Suppliers
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("all")]
         public async Task<IEnumerable<Suppliers>> GetAllAsync()
         {
