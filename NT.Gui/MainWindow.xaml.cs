@@ -12,5 +12,9 @@ namespace NT.Gui
             InitializeComponent();
             
         }
+        public void ShowError()
+        {
+            MessageBox.Show("Added successfully", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
     }
 }

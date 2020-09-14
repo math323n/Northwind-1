@@ -11,6 +11,7 @@ namespace NT.Gui.ViewModels.Base
         #region Methods
         /// <summary>
         /// Loads data from the database
+        /// Gets overriden inside OrderViewModel & ProductViewModel
         /// </summary>
         public virtual Task LoadAllAsync()
         {

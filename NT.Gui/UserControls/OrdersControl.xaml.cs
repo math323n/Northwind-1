@@ -11,6 +11,7 @@ namespace NT.Gui.UserControls
     public partial class OrdersControl: UserControl
     {
         private readonly OrderViewModel viewModel;
+        private bool isLoaded;
 
         public OrdersControl()
         {
@@ -19,14 +20,30 @@ namespace NT.Gui.UserControls
             viewModel = DataContext as OrderViewModel;
         }
 
+        /// <summary>
+        ///  Run when loaded Controller
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void OnLoaded(object sender, RoutedEventArgs e)
         {
             try
             {
-                await viewModel.LoadAllAsync();
+                // If not loaded then run
+                if(!isLoaded)
+                {
+                    // Set isLoaded to True
+                    isLoaded = !isLoaded;
+
+                    await viewModel.LoadAllAsync();
+                }
             }
-            catch(Exception)
+            catch(Exception ex)
             {
+                // Trim off duplicate text on error message
+                string ErrorDetail = ex.Message[0..^65];
+                // Error displayed on GUI
+                MessageBox.Show($"Could not establish connection with DataBase {ErrorDetail}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using NT.ViewModels.ViewModels;
+
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -8,9 +9,10 @@ namespace NT.Gui.UserControls
     /// <summary>
     /// Interaction logic for ProductsControl.xaml
     /// </summary>
-    public partial class ProductsControl : UserControl
+    public partial class ProductsControl: UserControl
     {
         private readonly ProductViewModel viewModel;
+        private bool isLoaded;
 
         public ProductsControl()
         {
@@ -23,12 +25,22 @@ namespace NT.Gui.UserControls
         {
             try
             {
-                await viewModel.LoadAllAsync();
+                // If not loaded then run
+                if(!isLoaded)
+                {
+                    // Set isLoaded to True
+                    isLoaded = !isLoaded;
+
+                    await viewModel.LoadAllAsync();
+                }
             }
-            catch(Exception)
+            catch(Exception ex)
             {
-               
+                // Trim off duplicate text on error message
+                string ErrorDetail = ex.Message[0..^65];
+                // Error displayed on GUI
+                MessageBox.Show($"Could not establish connection with DataBase {ErrorDetail}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
-} 
+}
