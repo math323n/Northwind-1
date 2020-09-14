@@ -10,16 +10,24 @@ namespace NT.Gui.UserControls
     /// </summary>
     public partial class OrdersControl: UserControl
     {
+        #region Fields
         private readonly OrderViewModel viewModel;
         private bool isLoaded;
+        #endregion
 
+        #region Constructor
+        /// <summary>
+        /// OrdersControl constructor
+        /// </summary>
         public OrdersControl()
         {
             InitializeComponent();
 
             viewModel = DataContext as OrderViewModel;
         }
+        #endregion
 
+        #region Methods
         /// <summary>
         ///  Run when loaded Controller
         /// </summary>
@@ -29,8 +37,10 @@ namespace NT.Gui.UserControls
         {
             try
             {
+                // Check if isLoaded is false
                 if(!isLoaded)
                 {
+                    // Set isLoaded to true
                     isLoaded = !isLoaded;
 
                     await viewModel.LoadAllAsync();
@@ -43,5 +53,6 @@ namespace NT.Gui.UserControls
                 MessageBox.Show(originalException.Message, "Kunne ikke oprette forbindelse til databasen.", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        #endregion
     }
 }
