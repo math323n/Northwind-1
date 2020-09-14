@@ -19,5 +19,15 @@ namespace NT.Gui
                 observableCollection.Add(item);
             }
         }
+
+        /// <summary>
+        /// Only get the original exception.
+        /// </summary>
+        /// <param name="ex"></param>
+        /// <returns></returns>
+        public static Exception GetOriginalException(this Exception ex)
+        {
+            return ex.InnerException == null ? ex : ex.InnerException.GetOriginalException();
+        }
     }
 }

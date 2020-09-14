@@ -23,23 +23,27 @@ namespace NT.Gui.UserControls
             viewModel = DataContext as ProductViewModel;
         }
 
+        /// <summary>
+        ///  Run when loaded Controller
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void OnLoaded(object sender, RoutedEventArgs e)
         {
             try
             {
-                // If not loaded then run
                 if(!isLoaded)
                 {
-                    // Set isLoaded to True
                     isLoaded = !isLoaded;
 
                     await viewModel.LoadAllAsync();
                 }
             }
-            catch(Exception)
-            { 
-                // Error displayed on GUI
-                MessageBox.Show($"Could not establish connection with DataBase", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            catch(Exception ex)
+            {
+                Exception originalException = ex.GetOriginalException();
+
+                MessageBox.Show(originalException.Message, "Kunne ikke oprette forbindelse til databasen.", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
