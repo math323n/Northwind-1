@@ -19,7 +19,12 @@ namespace NT.WebApi.Controllers
         [HttpGet("all/{customerID}")]
         public async Task<IEnumerable<Orders>> GetAllByIdAsync(string customerId)
         {
-            return await new OrderRepository().GetByIdAsync(customerId);
+           var result = await new OrderRepository().GetByIdAsync(customerId);
+            if(result == null)
+            {
+               
+            }
+            return result;
         }
     }
 }
