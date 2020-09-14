@@ -1,4 +1,5 @@
 ﻿using NT.ViewModels.ViewModels;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -20,7 +21,14 @@ namespace NT.Gui.UserControls
 
         private async void OnLoaded(object sender, RoutedEventArgs e)
         {
-            await viewModel.InitializeAsync();
+            try
+            {
+                await viewModel.LoadAllAsync();
+            }
+            catch(Exception)
+            {
+               
+            }
         }
     }
-}
+} 

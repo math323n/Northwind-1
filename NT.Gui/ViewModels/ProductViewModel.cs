@@ -49,7 +49,7 @@ namespace NT.ViewModels.ViewModels
         #endregion
 
         #region Methods
-        protected override async Task LoadAllAsync()
+        public override async Task LoadAllAsync()
         {
             ProductService service = new ProductService();
 

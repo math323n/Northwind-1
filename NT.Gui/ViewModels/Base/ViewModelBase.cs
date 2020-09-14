@@ -6,22 +6,13 @@ namespace NT.Gui.ViewModels.Base
     /// <summary>
     /// Base class for ViewModel classes
     /// </summary>
-    public class ViewModelBase : BindableBase
+    public abstract class ViewModelBase : BindableBase
     {
         #region Methods
         /// <summary>
-        /// Runs the <see cref="LoadAllAsync"/> method
-        /// </summary>
-        public virtual async Task InitializeAsync()
-        {
-            // Load suppliers
-            await LoadAllAsync();
-        }
-
-        /// <summary>
         /// Loads data from the database
         /// </summary>
-        protected virtual Task LoadAllAsync()
+        public virtual Task LoadAllAsync()
         {
             throw new NotImplementedException();
         }

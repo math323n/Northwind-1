@@ -67,7 +67,7 @@ namespace NT.ViewModels.ViewModels
         /// <summary>
         /// Loads all orders from the endpoint
         /// </summary>
-        protected override async Task LoadAllAsync()
+        public override async Task LoadAllAsync()
         {
             OrderService orderService = new OrderService();
             List<Orders> orders = await orderService.GetAllOrdersAsync();
@@ -76,25 +76,6 @@ namespace NT.ViewModels.ViewModels
             ShipperService shipperService = new ShipperService();
             List<Shippers> shippers = await shipperService.GetAllShippersAsync();
             Shippers.ReplaceWith(shippers);
-        }
-
-        /// <summary>
-        /// Deletes an order
-        /// </summary>
-        private void DeleteOrder()
-        {
-            // Needs implementing
-            throw new NotImplementedException();
-
-        }
-        /// <summary>
-        ///  Adds an order
-        /// </summary>
-        private void AddOrder()
-        {
-            // Needs implementing
-            throw new NotImplementedException();
-
         }
         #endregion
     }
