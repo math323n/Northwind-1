@@ -1,4 +1,5 @@
 ﻿using System;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Logging;
@@ -6,22 +7,24 @@ using Microsoft.Extensions.Logging.Console;
 
 namespace NT.Entities.Models
 {
-    public partial class NorthwindContext : DbContext
+    public partial class NorthwindContext: DbContext
     {
         //static LoggerFactory object
         public static readonly ILoggerFactory factory
      = LoggerFactory.Create(builder => { builder.AddConsole(); });
 
-    
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.UseLoggerFactory(factory);
+            optionsBuilder.EnableSensitiveDataLogging();
             if(!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseLoggerFactory(factory)
-               .EnableSensitiveDataLogging()
-               .UseSqlServer(@"Server=10.143.75.66;Database=Northwind;User Id=webapi;Password=P4ssw0rd;");
+                optionsBuilder.UseSqlServer(@"Server=10.143.75.66;Database=Northwind;User Id=webapi;Password=P4ssw0rd;");
             }
+
         }
+
         public NorthwindContext()
         {
 
@@ -62,16 +65,16 @@ namespace NT.Entities.Models
         public virtual DbSet<Suppliers> Suppliers { get; set; }
         public virtual DbSet<Territories> Territories { get; set; }
 
-       /* protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                // Use VM Database Server
-                optionsBuilder.UseSqlServer("Server=10.143.75.66;Database=Northwind;User Id=webapi;Password=P4ssw0rd;");
+        /* protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+         {
+             if (!optionsBuilder.IsConfigured)
+             {
+                 // Use VM Database Server
+                 optionsBuilder.UseSqlServer("Server=10.143.75.66;Database=Northwind;User Id=webapi;Password=P4ssw0rd;");
 
-                //optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Northwind;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-            }
-        }*/
+                 //optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Northwind;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+             }
+         }*/
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
