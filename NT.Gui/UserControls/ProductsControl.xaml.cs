@@ -56,12 +56,13 @@ namespace NT.Gui.UserControls
             {
                 // Log error message to a text document
                 // get file path
-                string filePath = @"C:\Users\math323n\Documents\Logs\Logs.txt";
+                string directory = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
+                string filePath = $"{directory}/log.txt";
                 // Use StreamWriter to log message
                 using(StreamWriter writer = new StreamWriter(filePath, true))
                 {
                     // Write...
-                    writer.WriteLine("Message :" + ex.Message + Environment.NewLine + "StackTrace :" + ex.StackTrace +
+                    writer.WriteLine("Message :" + ex.Message  + Environment.NewLine + "StackTrace :" + ex.StackTrace +
                        "" + Environment.NewLine + "Date :" + DateTime.Now.ToString());
                     // Make space for new message
                     writer.WriteLine(Environment.NewLine + "-----------------------------------------------------------------------------" + Environment.NewLine);
