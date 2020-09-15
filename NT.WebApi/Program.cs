@@ -16,8 +16,7 @@ namespace NT.WebApi
             
                 var host = CreateHostBuilder(args).Build();
                 host.Run();
-          
-
+ 
 
         }
 

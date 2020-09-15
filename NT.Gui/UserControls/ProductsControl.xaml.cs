@@ -4,6 +4,7 @@ using NT.ViewModels.ViewModels;
 
 using System;
 using System.Globalization;
+using System.IO;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -44,7 +45,7 @@ namespace NT.Gui.UserControls
             {
                 // Check if isLoaded is false
                 if(!isLoaded)
-                { 
+                {
                     // Set isLoaded to true
                     isLoaded = !isLoaded;
 
@@ -53,8 +54,19 @@ namespace NT.Gui.UserControls
             }
             catch(Exception ex)
             {
+                // Log error message to a text document
+                // get file path
+                string filePath = @"C:\Users\math323n\Documents\Logs\Logs.txt";
+                // Use StreamWriter to log message
+                using(StreamWriter writer = new StreamWriter(filePath, true))
+                {
+                    // Write...
+                    writer.WriteLine("Message :" + ex.Message + "<br/>" + Environment.NewLine + "StackTrace :" + ex.StackTrace +
+                       "" + Environment.NewLine + "Date :" + DateTime.Now.ToString());
+                    // Make space for new message
+                    writer.WriteLine(Environment.NewLine + "-----------------------------------------------------------------------------" + Environment.NewLine);
+                }
                 Exception originalException = ex.GetOriginalException();
-               
 
                 MessageBox.Show(originalException.Message, "Kunne ikke oprette forbindelse til databasen.", MessageBoxButton.OK, MessageBoxImage.Error);
             }

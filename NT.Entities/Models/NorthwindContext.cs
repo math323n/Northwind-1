@@ -10,24 +10,32 @@ namespace NT.Entities.Models
     public partial class NorthwindContext: DbContext
     {
         //static LoggerFactory object
-        public static readonly ILoggerFactory factory
-     = LoggerFactory.Create(builder => { builder.AddConsole(); });
+       /* public static readonly ILoggerFactory factory
+     = LoggerFactory.Create(builder => { builder.AddConsole(); });*/
+        private readonly ILoggerFactory _loggerFactory;
 
 
+        /* protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+         {
+             optionsBuilder.UseLoggerFactory(factory);
+             optionsBuilder.EnableSensitiveDataLogging();
+             if(!optionsBuilder.IsConfigured)
+             {
+                 optionsBuilder.UseSqlServer(@"Server=10.143.75.66;Database=Northwind;User Id=webapi;Password=P4ssw0rd;");
+             }
+
+         }
+         */
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseLoggerFactory(factory);
-            optionsBuilder.EnableSensitiveDataLogging();
-            if(!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer(@"Server=10.143.75.66;Database=Northwind;User Id=webapi;Password=P4ssw0rd;");
-            }
+            base.OnConfiguring(optionsBuilder);
 
+            optionsBuilder.UseLoggerFactory(_loggerFactory);
         }
 
         public NorthwindContext()
         {
-
+            _loggerFactory = LoggerFactory.Create(builder => { builder.AddConsole(); });
         }
 
         public NorthwindContext(DbContextOptions<NorthwindContext> options)
