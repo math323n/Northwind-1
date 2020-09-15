@@ -1,13 +1,30 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 
 namespace NT.Entities.Models
 {
     public partial class NorthwindContext : DbContext
     {
+        //static LoggerFactory object
+        public static readonly ILoggerFactory factory
+     = LoggerFactory.Create(builder => { builder.AddConsole(); });
+
+    
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if(!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseLoggerFactory(factory)
+               .EnableSensitiveDataLogging()
+               .UseSqlServer(@"Server=10.143.75.66;Database=Northwind;User Id=webapi;Password=P4ssw0rd;");
+            }
+        }
         public NorthwindContext()
         {
+
         }
 
         public NorthwindContext(DbContextOptions<NorthwindContext> options)
@@ -45,7 +62,7 @@ namespace NT.Entities.Models
         public virtual DbSet<Suppliers> Suppliers { get; set; }
         public virtual DbSet<Territories> Territories { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+       /* protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
@@ -54,7 +71,7 @@ namespace NT.Entities.Models
 
                 //optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Northwind;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             }
-        }
+        }*/
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

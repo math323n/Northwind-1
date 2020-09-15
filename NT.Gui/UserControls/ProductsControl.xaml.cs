@@ -1,4 +1,6 @@
-﻿using NT.ViewModels.ViewModels;
+﻿using Microsoft.Extensions.Logging.Console;
+
+using NT.ViewModels.ViewModels;
 
 using System;
 using System.Globalization;
@@ -52,6 +54,7 @@ namespace NT.Gui.UserControls
             catch(Exception ex)
             {
                 Exception originalException = ex.GetOriginalException();
+               
 
                 MessageBox.Show(originalException.Message, "Kunne ikke oprette forbindelse til databasen.", MessageBoxButton.OK, MessageBoxImage.Error);
             }
