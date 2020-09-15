@@ -56,7 +56,7 @@ namespace NT.Gui.UserControls
                 using(StreamWriter writer = new StreamWriter(filePath, true))
                 {
                     // Write...
-                    writer.WriteLine("Message :" + ex.Message + "<br/>" + Environment.NewLine + "StackTrace :" + ex.StackTrace +
+                    writer.WriteLine("Message :" + ex.Message + Environment.NewLine + "StackTrace :" + ex.StackTrace +
                        "" + Environment.NewLine + "Date :" + DateTime.Now.ToString());
                     // Make space for new message
                     writer.WriteLine(Environment.NewLine + "-----------------------------------------------------------------------------" + Environment.NewLine);
