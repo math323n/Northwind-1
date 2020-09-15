@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NT.WebApi", "NT.WebApi\NT.W
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NT.Tests", "NT.Tests\NT.Tests.csproj", "{042FE5DB-762E-4293-8270-6024544DF4D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NT.Utilities", "NT.Utilities\NT.Utilities.csproj", "{BF15C6C7-306D-4DF2-A9B1-68A9D7CB2330}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NT.Utilities", "NT.Utilities\NT.Utilities.csproj", "{BF15C6C7-306D-4DF2-A9B1-68A9D7CB2330}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

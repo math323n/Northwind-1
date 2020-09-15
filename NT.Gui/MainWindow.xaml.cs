@@ -1,3 +1,5 @@
+using Microsoft.Extensions.Logging;
+
 using System.Windows;
 
 namespace NT.Gui
@@ -7,13 +9,26 @@ namespace NT.Gui
     /// </summary>
     public partial class MainWindow: Window
     {
+
         public MainWindow()
         {
+            
             InitializeComponent();
             
+
         }
         public void ShowError()
         {
+           
+           
+
+        }
+
+ 
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+          //  _logger.LogInformation("sut");
             MessageBox.Show("Added successfully", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }

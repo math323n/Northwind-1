@@ -57,8 +57,11 @@
                 <usercontrols:ProductsControl />
             </TabItem>
             <!--#endregion-->
+           
 
         </TabControl>
+        <Button Content="Click"
+                Click="Button_Click"></Button>
         <!--#endregion-->
 
     </Grid>
