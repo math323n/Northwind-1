@@ -14,9 +14,11 @@ namespace NT.Logger
         /// </summary>
         public static void Configure()
         {
-           
+
+
+
             logFilePath = ConfigurationManager.AppSettings["LogFilePath"].ToString();
-           
+
 
             // = $"{directory}/log.txt";
         }
@@ -56,7 +58,6 @@ namespace NT.Logger
         /// <param name="message"></param>
         private static void WriteLog(string message)
         {
-           
             using StreamWriter writer = new StreamWriter(logFilePath, true);
             // Write...
             writer.WriteLine(message);
