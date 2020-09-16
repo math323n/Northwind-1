@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NT.Entities\NT.Entities.csproj" />
+    <ProjectReference Include="..\NT.Logger\NT.Logger.csproj" />
   </ItemGroup>
 
 </Project>

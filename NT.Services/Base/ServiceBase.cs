@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NT.Logger;
+using System;
 using System.IO;
 using System.Net;
 using System.Threading.Tasks;
@@ -47,8 +48,9 @@ namespace NT.Services.Base
                 // Return the retrieved JSON data.
                 return result;
             }
-            catch(Exception)
+            catch(Exception ex)
             {
+                Logger.Logger.Log(ex);
                 throw;
             }
         }

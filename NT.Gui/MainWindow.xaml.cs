@@ -12,7 +12,7 @@ namespace NT.Gui
 
         public MainWindow()
         {
-            
+            Logger.Logger.Configure();
             InitializeComponent();
             
 

@@ -1,12 +1,8 @@
-﻿using Microsoft.Extensions.Logging.Console;
-
+﻿
 using NT.Utilities;
 using NT.ViewModels.ViewModels;
-
 using System;
-using System.Globalization;
-using System.IO;
-using System.Threading;
+using NT.Logger;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -55,19 +51,9 @@ namespace NT.Gui.UserControls
             }
             catch(Exception ex)
             {
-                // Log error message to a text document
-                // get file path
-                string directory = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
-                string filePath = $"{directory}/log.txt";
-                // Use StreamWriter to log message
-                using(StreamWriter writer = new StreamWriter(filePath, true))
-                {
-                    // Write...
-                    writer.WriteLine("Message :" + ex.Message  + Environment.NewLine + "StackTrace :" + ex.StackTrace +
-                       "" + Environment.NewLine + "Date :" + DateTime.Now.ToString());
-                    // Make space for new message
-                    writer.WriteLine(Environment.NewLine + "-----------------------------------------------------------------------------" + Environment.NewLine);
-                }
+                
+                Logger.Logger.Log(ex);
+            
                 Exception originalException = ex.GetOriginalException();
 
                 MessageBox.Show(originalException.Message, "Kunne ikke oprette forbindelse til databasen.", MessageBoxButton.OK, MessageBoxImage.Error);
