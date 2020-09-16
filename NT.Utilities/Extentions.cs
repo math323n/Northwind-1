@@ -1,15 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Console;
-
-using NT.Entities.Models;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 
-namespace NT.Gui
+namespace NT.Utilities
 {
     public static class Extensions
     {
@@ -35,9 +28,6 @@ namespace NT.Gui
         {
             return ex.InnerException == null ? ex : ex.InnerException.GetOriginalException();
         }
-
-       
-
 
     }
 }

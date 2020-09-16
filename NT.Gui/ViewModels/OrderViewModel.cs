@@ -2,6 +2,8 @@ using NT.Entities.Models;
 using NT.Gui;
 using NT.Gui.ViewModels.Base;
 using NT.Services;
+using NT.Utilities;
+
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
