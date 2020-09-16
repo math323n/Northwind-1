@@ -23,7 +23,7 @@ namespace NT.Logger
         /// <param name="message"></param>
         public static void Log(string message)
         {
-
+            WriteLog(message);
         }
 
         /// <summary>
@@ -32,8 +32,15 @@ namespace NT.Logger
         /// <param name="ex"></param>
         public static void Log(Exception ex)
         {
-            string message = "Message: " + ex.Message + Environment.NewLine + "StackTrace: " + ex.StackTrace +
-                       "" + Environment.NewLine + "Date: " + DateTime.Now.ToString() + "\n-----------------------------------------------------------------------------";
+            string line = new string('-', 170);
+            string message =
+                $"Date: {DateTime.Now}\n" +
+                $"Message: {ex.Message}\n" +
+                $"Source: {ex.Source}\n" +
+                $"InnerException: {ex.InnerException}\n" +
+                $"StackTrace: {ex.StackTrace}\n" +
+                $"{line}";
+                    
             WriteLog(message);
         }
 
