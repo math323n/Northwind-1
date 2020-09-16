@@ -1,5 +1,5 @@
 using Microsoft.Extensions.Logging;
-
+using System.Configuration;
 using System.Windows;
 
 namespace NT.Gui
@@ -12,16 +12,8 @@ namespace NT.Gui
 
         public MainWindow()
         {
-            Logger.Logger.Configure();
-            InitializeComponent();
             
-
-        }
-        public void ShowError()
-        {
-           
-           
-
+            InitializeComponent();
         }
 
  
