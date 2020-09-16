@@ -13,11 +13,8 @@ namespace NT.WebApi
     {
         public static void Main(string[] args)
         {
-            
-                var host = CreateHostBuilder(args).Build();
+            IHost host = CreateHostBuilder(args).Build();
                 host.Run();
- 
-
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args)
@@ -25,11 +22,8 @@ namespace NT.WebApi
             return Host.CreateDefaultBuilder(args)
         .ConfigureWebHostDefaults(webBuilder =>
             {
-                 webBuilder.UseStartup<Startup>();
-             
+                 webBuilder.UseStartup<Startup>(); 
             });
         }
-
-        
     }
 }

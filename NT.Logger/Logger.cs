@@ -32,8 +32,8 @@ namespace NT.Logger
         /// <param name="ex"></param>
         public static void Log(Exception ex)
         {
-            string message = "Message: " + ex.Message + Environment.NewLine + "StackTrace :" + ex.StackTrace +
-                       "" + Environment.NewLine + "Date :" + DateTime.Now.ToString() + "\n-----------------------------------------------------------------------------";
+            string message = "Message: " + ex.Message + Environment.NewLine + "StackTrace: " + ex.StackTrace +
+                       "" + Environment.NewLine + "Date: " + DateTime.Now.ToString() + "\n-----------------------------------------------------------------------------";
             WriteLog(message);
         }
 
